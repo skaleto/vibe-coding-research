@@ -185,7 +185,7 @@ ASO 策略：标题应包含 1 个核心热门词 + 2-3 个长尾词组合（比
 - 宝宝起名大师（¥18-58 IAP）App Store 51 条评分，按"30:1 评分:付费用户"估付费约 1,500 人 / 累计 → 月均若 100 付费 × ¥38 = ¥3,800
 - 起名有福 2,145 条评分 → 累计付费用户估 6 万+ → 单产品月均 ¥10K-30K 可能
 - 小红书起名"单号月入 1-2 万元"为偏高自报数据，存在「教程营销」夸大水分
-- 国内 mobile App 净利率 15-25%（[参见母研究 STOPPR 案例](https://www.indiehackers.com/post/tech/learning-to-code-and-building-a-28k-mo-portfolio-of-saas-products-OA5p18fXtvHGxP9xTAwG)）—— ¥30K MRR 实际净利约 ¥6-8K
+- 国内轻量 App 净利率按 15-25% 做保守敏感性测算；这是模型假设，不是起名赛道实证。若 ¥30K MRR，实际净利可能只有约 ¥6-8K
 
 ### 7.3 隐性成本
 
@@ -213,7 +213,7 @@ ASO 策略：标题应包含 1 个核心热门词 + 2-3 个长尾词组合（比
 1. **数据验证**：现有头部 App 起名有福 2,145 评分、美名腾 5-8 亿次累计使用——市场已被教育，无需说服
 2. **差异化清晰**：现有产品都是"五格剖象 / 周易玄学派"（评分主观、可靠性低），用户原话「评分软件不准」——真 AI（GPT-4o）+ 诗经楚辞出处 + 美图海报 是空白细分
 3. **付费曲线健康**：¥18 IAP 试水 → ¥68 主力包 → ¥198 大师包，跨越三个心理价位段
-4. **小红书 / 抖音种草分发成熟**：宝宝起名笔记 SEO 流量稳定、KOC 模板可抄
+4. **小红书 / 抖音种草分发成熟**：宝宝起名笔记 SEO 流量稳定，KOC 内容结构可参考但需原创表达
 5. **微信小程序避雷**：iOS + 应用宝 + 安卓主力，绕开微信"算命红线"
 6. **完美契合 1-2 周开发周期**：核心功能 = LLM API 调用 + 名字打分简化版（去掉八字吉凶）+ 海报模板 + 微信支付 / Apple IAP
 
@@ -289,8 +289,8 @@ ASO 策略：标题应包含 1 个核心热门词 + 2-3 个长尾词组合（比
 - [知乎：00 后如何给爱宠取名 52 个](https://zhuanlan.zhihu.com/p/414495587)
 - [知乎：如何起个简洁好听的笔名](https://www.zhihu.com/question/340169141)
 
-### 母研究文档（背景）
-- [/Users/bytedance/Documents/research/vibe-coding-research-2026-05.md](file:///Users/bytedance/Documents/research/vibe-coding-research-2026-05.md) — Max Artemov 30 App 模式与 STOPPR 案例
+### 背景研究文档
+- [../vibe-coding-research-from-scratch-2026-05.md](../vibe-coding-research-from-scratch-2026-05.md) — 从零核验版 vibe coding / 个人开发者产品调研。仅作为机会背景，不作为本产品 MRR 的直接证据。
 
 ### ASO / 关键词工具
 - [百度指数官网](https://index.baidu.com/v2/index.html)

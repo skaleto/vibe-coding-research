@@ -4,7 +4,7 @@
 **日期**：2026-05-27
 **上游 PRD**：[`prd-04-dream-journal.md`](./prd-04-dream-journal.md)
 **上游调研**：[`03-ai-dream-journal-research.md`](./03-ai-dream-journal-research.md)
-**定位**：矩阵 #4 试水位（国内 70% 合规通过率 + 海外红海），1-2 周轻投入
+**定位**：矩阵 #4 试水位（国内合规需上架实测 + 海外红海），1-2 周轻投入
 
 > **本文档目标**：把 PRD 细化到「明天就能开始写代码」的可执行级别。**合规章节是 #4 idea 的命脉**，请反复 review。
 
@@ -86,7 +86,7 @@ dream to help self-understanding.
 2. Never give medical/clinical diagnoses (anxiety disorder, PTSD, depression, etc).
 3. Use hedging language: "may reflect", "could be interpreted as", "one perspective is".
 4. If user describes self-harm, suicide ideation, or severe distress → append
-   crisis resources (988 Lifeline / Samaritans / regional hotline by locale).
+   crisis resources loaded from a verified locale-specific hotline config.
 5. Always include disclaimer banner at the top of every response.
 
 # Input
@@ -245,7 +245,7 @@ school: "荣格"
   "next_step": "请优先寻求专业帮助。这不是夸张,是真正有效的步骤。",
   "crisis_alert": {
     "level": "high",
-    "hotline": "全国心理援助热线: 400-161-9995 (24h 免费) / 北京心理危机研究与干预中心: 010-82951332 / 上海市心理援助热线: 021-12320-5"
+    "hotline": "{{crisis_hotline_primary}} / {{crisis_hotline_secondary}}（按用户 locale 与城市从已核验白名单读取；上线前不得硬编码未经复核的号码）"
   }
 }
 ```
@@ -400,7 +400,7 @@ school: "Gestalt"
 ### A.4 严重情绪检测规则
 
 详见 **G.2 严重情绪关键词检测系统**。核心摘要：
-- 一级关键词命中（如"自杀/跳楼/不想活"）→ 立即在输出最顶部插入热线，不再做常规意象分析
+- 一级关键词命中（如"自杀/跳楼/不想活"）→ 暂停常规意象分析，优先显示危机支持与求助入口
 - 二级关键词命中（如"绝望/没意思/熬不下去"）→ 输出末尾追加热线 + 建议咨询
 - 三级关键词命中（如"孤独/累/想消失"）→ 输出末尾追加温和的咨询建议
 
@@ -732,7 +732,7 @@ school: "Gestalt"
 ```
 
 **严重情绪触发的页面变体**：
-- 顶部 disclaimer 之下，插入醒目橙色卡片：「我注意到你描述中可能涉及困难情绪。如果你正在经历危机，请优先拨打：[全国心理援助热线 400-161-9995]」
+- 顶部 disclaimer 之下，插入醒目橙色卡片：「我注意到你描述中可能涉及困难情绪。如果你正在经历危机，请优先联系：[已核验的本地危机支持热线]」
 - 卡片有「我已拨打 / 我现在还好 / 提醒我 1 小时后再问候」三按钮
 
 ### C.5 时间轴页（Timeline）
@@ -837,45 +837,37 @@ AI 生成的解读仅是众多可能视角之一,不构成任何形式的预测�
 我注意到你的描述中可能涉及难以承受的情绪。
 在我们继续之前,请允许我把以下信息放在最前面:
 
-📞 全国心理援助热线: 400-161-9995（24 小时免费）
-📞 北京危机研究与干预中心: 010-82951332
-📞 上海市心理援助热线: 021-12320-5
+📞 {{crisis_hotline_primary}}
+📞 {{crisis_hotline_secondary}}
+📞 {{trusted_contact_shortcut}}
 
 如果你身边有可以信任的人,现在就告诉 ta 你的感受。
 你不是一个人在面对这些。
 
-[我现在还好,继续分析]  [打开拨号]  [发送给信任的人]
+[打开拨号]  [发送给信任的人]  [稍后再记录]
 ```
 
 ### D.3 严重情绪触发 → 热线推送的完整文案
 
 **一级触发（自杀/自残意图相关词命中）**：
 - 触发词（部分）：自杀、了结、跳楼、跳楼、上吊、自缢、割腕、安乐死、了断、不想活、想死、活着没意义、自残、撞墙、伤害自己、消失算了...
-- 处理：暂停常规分析，全屏弹窗显示热线信息（如模板 4），并把当条梦境的常规分析结果调整为「关怀回应模式」
+- 处理：暂停常规梦境分析，全屏弹窗显示热线信息（如模板 4），只输出简短关怀回应与求助入口，不解释梦境含义
 - 数据记录：本地（用户隐私）记录触发标记，连续 3 天触发提供「联系家人」快捷功能
 
 **二级触发（强烈负面情绪关键词）**：
 - 触发词：绝望、痛苦、熬不下去、撑不住、崩溃、空虚、没意思、活着累...
 - 处理：常规分析照常给出，但末尾追加暖色卡片含热线 + 暖句
-- 文案：「你描述中传达的情绪让我有些担心。这种感觉是真实的,值得被认真对待。如果你愿意,可以拨打 400-161-9995 和专业人士聊聊。」
+- 文案：「你描述中传达的情绪让我有些担心。这种感觉是真实的,值得被认真对待。如果你愿意,可以联系已核验的本地危机支持热线或身边可信任的人。」
 
 **三级触发（持续低落迹象）**：
 - 触发词：孤独、累、想消失、没人懂、躲起来、一个人...
 - 处理：分析正常进行，末尾追加温和句子建议「如果这种感受经常出现,和专业人士聊聊会有帮助」
 
-**热线信息白名单（国内）**：
-- 全国心理援助热线：400-161-9995（24h 免费，北京回龙观医院主管）
-- 上海市心理援助热线：021-12320-5
-- 北京心理危机研究与干预中心：010-82951332
-- 广州心理援助热线：020-81899120
-- 北京大学第六医院抑郁热线：010-62723885
-
-**热线信息白名单（海外，按 locale 路由）**：
-- en-US：988 (Suicide & Crisis Lifeline)
-- en-GB：Samaritans 116 123
-- en-AU：Lifeline 13 11 14
-- en-CA：988 Canada
-- 国际通用：iasp.info/resources
+**热线信息白名单（上线前必须人工核验，之后每月复核一次）**：
+- 不在 PRD/代码里硬编码未经复核的号码；用远端配置按 `locale + city` 下发
+- 每条热线记录必须包含：名称、号码、服务地区、服务时间、来源 URL、最后核验日期、核验人
+- 配置缺失时展示“联系本地紧急电话/可信任的人/专业心理机构”的通用求助入口，不编造号码
+- 海外 locale 可优先接入官方或权威机构资源页，例如当地政府/公共卫生系统、IASP 资源目录等
 
 ### D.4 反沉迷弹窗文案（AI 拟人化新规要求）
 
@@ -936,8 +928,8 @@ that differentiate it from saturated fortune-telling categories:
    - Crisis-detection with automated routing to local mental health hotlines
 
 4. **Crisis safety net**: We've implemented a keyword-detection system that
-   surfaces region-appropriate mental health hotlines (988 in US, Samaritans
-   in UK, Lifeline in AU) when users describe severe distress.
+   surfaces region-appropriate mental health resources from a verified hotline
+   config when users describe severe distress.
 
 5. **Comparable in-store apps positioned similarly**:
    - Elsewhere (ID: 6445864345) - "Dream Journal" psychoeducational tool

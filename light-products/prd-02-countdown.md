@@ -258,7 +258,7 @@
 ## 14. 引用与参考
 
 - 调研：[`05-backup-ideas-research.md § Idea 5`](./05-backup-ideas-research.md)
-- 母研究：[`../vibe-coding-research-2026-05.md`](../vibe-coding-research-2026-05.md)
+- 背景研究：[`../vibe-coding-research-from-scratch-2026-05.md`](../vibe-coding-research-from-scratch-2026-05.md)（只作机会背景，不作为本产品收入预测的直接证据）
 - Days Matter 数据：[Sensor Tower](https://app.sensortower.com/overview/406170251?country=CN) / [App Store](https://apps.apple.com/cn/app/id406170251)
 - 用户痛点参考：[少数派 Days Matter 评测](https://sspai.com/post/14704) / [豆瓣讨论](https://www.douban.com/group/topic/260945759/)
 - 主题设计灵感：Things 3 / Bear / TidByt / VSCO / 黄油相机

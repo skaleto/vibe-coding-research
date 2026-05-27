@@ -307,4 +307,4 @@ K12 学生家长高频应用场景集中于拍照搜题 / 错题分析（[艾瑞
 ### 通用合规与背景
 - [小猫补光灯 陈云飞 36 氪专访（年收入百万构成）](https://36kr.com/p/3260888901418760)
 - [腾讯新闻 小猫补光灯陈云飞专访](https://news.qq.com/rain/a/20241214A023WP00)
-- [Vibe Coding 全球个人/小团队开发者产品矩阵深度调研（2026-05）背景文档](file:///Users/bytedance/Documents/research/vibe-coding-research-2026-05.md)
+- [Vibe Coding 个人/小团队产品调研（从零研究版）](../vibe-coding-research-from-scratch-2026-05.md) — 仅作为机会背景，不作为本文件各 idea 收入预测的直接证据

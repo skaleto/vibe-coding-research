@@ -148,7 +148,7 @@ AI 真懂诗经的起名工具 —— 拍下需求，30 秒拿到 10 个有出�
 
 # 任务
 生成 10 个名字，每个名字必须满足：
-1. 真实出处（必须来自上述 4 本经典，引用原句必须能在 ChatGPT 内验证）
+1. 真实出处（必须来自上述 4 本经典，引用原句必须能被本地典故白名单校验；不能只靠 ChatGPT 自证）
 2. 字义吉祥、字形美观（避免生僻字如「皋陶」「莘野」）
 3. 男孩/女孩适配（女孩侧重柔美灵动，男孩侧重大气方正）
 4. 五行属性符合
@@ -194,6 +194,15 @@ AI 真懂诗经的起名工具 —— 拍下需求，30 秒拿到 10 个有出�
 - 真实可工商使用的字号
 - 避免敏感词（"中国""国际""第一"等需要前置审批）
 ```
+
+### 6.3 MVP 硬门槛：典故校验
+
+宝宝起名的核心卖点是“真实出处”。因此 MVP 不能只让 LLM 生成 `source` 和 `original_quote` 后直接展示：
+
+- 必须先内置一个最小典故库：诗经 305 篇、楚辞核心篇目、唐诗 300 首、论语 20 篇。
+- 每个候选名返回前必须调用 `verify_quote(book, chapter, quote)`，校验失败则丢弃并重试。
+- 付费结果页只展示校验通过的名字；未校验通过的内容不能进入海报和付费报告。
+- 每日人工抽检 30-50 条付费结果，误检率超过 2% 时暂停投放并回滚 prompt。
 
 ---
 
@@ -373,7 +382,7 @@ AI 真懂诗经的起名工具 —— 拍下需求，30 秒拿到 10 个有出�
 ## 14. 引用与参考
 
 - 调研报告：[`01-ai-naming-research.md`](./01-ai-naming-research.md)
-- 母研究：[`../vibe-coding-research-2026-05.md`](../vibe-coding-research-2026-05.md)
+- 背景研究：[`../vibe-coding-research-from-scratch-2026-05.md`](../vibe-coding-research-from-scratch-2026-05.md)（只作机会背景，不作为本产品收入预测的直接证据）
 - 微信小程序合规：[官方算命修改指引](https://developers.weixin.qq.com/community/develop/doc/000082c0f88640f4b490809316b009)
 - 头部竞品参考：[起名通](https://www.qimingtong.com/about) / [美名腾](https://m.meimingteng.com/) / [宝宝起名大师 App Store](https://apps.apple.com/cn/app/id6472779072)
 - ASO 工具：[5118](https://www.5118.com/)
