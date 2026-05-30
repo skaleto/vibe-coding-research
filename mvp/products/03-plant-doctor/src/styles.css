@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #527064;
+  --color-accent: #e8a45e;
+  --color-bg: #fff8ee;
+  --color-ink: #2e3d33;
+}
+
+html,
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 隐藏文件上传按钮自带样式 */
+input[type='file']::file-selector-button {
+  display: none;
+}

@@ -207,10 +207,40 @@ AI 搜索（ChatGPT / Perplexity / Gemini / Google AI Overviews）让 SEO 行业
 
 ## 六、数据可信度说明
 
-- **已交叉验证**：Pieter Levels、Marc Lou、Cal AI、Lovable 案例、Base44、平台 ARR 多源
-- **仅一手自报**：Bolt 官博匿名案例、部分 IH 帖、Cluely（创始人后承认夸大）
-- **未公开**：HoodMaps、ReMagic（疑名称误记）、Microlaunch 多数 top 产品 MRR、Notion/Gumroad 个体案例 Stripe 未验证
+### 6.1 证据等级系统（A / B / C / D） — Codex Review 引入
+
+所有 revenue / MRR / ARR / 下载量数据按证据强度降权：
+
+| 等级 | 证据类型 | 决策用法 |
+|---|---|---|
+| **A** | 官方披露、Stripe / API 验证、商店后台截图、并购公告 | 可直接参与排序与定价 |
+| **B** | Sensor Tower / Apptopia / 七麦 / 蝉大师等第三方估算；TechCrunch / Latka 等媒体采访 | 只能作为方向验证，**不能当精确收入** |
+| **C** | 平台客户故事（Lovable/Bolt 官博）、创始人自报、X 截图、社区爆款案例 | 只作灵感和假设；不单独作为强结论 |
+| **D** | 匿名截图、Reddit 传闻、二手自媒体搬运、无法找到原始产品/地址 | 不进入核心判断 |
+
+**关键应用**（本报告里需要按 B 级降权的）：
+- Days Matter 月入 $60K → **B 级**（Sensor Tower/Apptopia 估算）
+- 睿琪 PictureThis 年入 10 亿 → **B 级**（媒体报道口径）
+- 2026-01 猫咪语言 ¥1000 成本登顶 → **B 级**（媒体报道）
+- Levels.io PhotoAI $138K MRR → **C 级**（创始人自报，非 Stripe 验证）
+- Cal AI $50M ARR → **B 级**（TechCrunch + 收购方公告）
+
+### 6.2 文档内验证状态
+
+- **已交叉验证（A 级）**：Marc Lou TrustMRR Stripe verified、Base44 Wix 收购公告、Magnific Freepik 改名 PR、TrustMRR Stripe API 验证的所有 startup
+- **B 级口径**：Pieter Levels 系列、Cal AI、平台 ARR 多源
+- **C 级仅一手自报**：Bolt 官博匿名案例、部分 IH 帖、Cluely（创始人后承认夸大 $7M → 实际 $5.2M）
+- **未公开**：HoodMaps、ReMagic（疑名称误记）、Microlaunch 多数 top 产品 MRR、Notion/Gumroad 个体案例
 - **时点漂移**：平台 ARR 增长极快，所有数据请以括注时点为准
+
+### 6.3 收入与利润的差异口径
+
+**所有 MRR / ARR 都是流水，不是净利润**。本报告里"$100K MRR"看似惊人，按 5.3 章的成本结构反推：
+- 如果是消费 App，净利约 $15-25K
+- 如果是 SaaS，净利约 $50-70K
+- 如果是 boilerplate / 数字商品，净利约 $70-85K
+
+引用别人收入数据时，务必同时估算成本结构再判断是否真有吸引力。
 
 ---
 
@@ -486,18 +516,34 @@ AI 搜索（ChatGPT / Perplexity / Gemini / Google AI Overviews）让 SEO 行业
 
 ## 十、推荐路径与决策（含 Codex 校准）
 
-### 10.0 Vibe coding 成功公式
+### 10.0 Vibe coding 成功公式（含 Codex Review 加固）
 
 > **不是** `AI 写代码 = 赚钱`
 >
-> **而是** `已有需求 / 行业入口  +  快速产品化  +  可计量 ROI  +  分发能力`
+> **而是** `已有需求 / 行业入口  +  快速产品化  +  可计量 ROI  +  分发能力  +  合规可执行性`
 
 AI coding 把 MVP 成本降到趋近于零 → **代码本身不再是瓶颈**。新的瓶颈是：
-1. 你能不能进入某个有需求的圈子（行业入口 / 受众 / agency 渠道）
-2. 你能不能让客户用 ROI 来衡量你的产品（多拿 lead、少漏单、多曝光）
-3. 你能不能在某个分发渠道持续被发现
 
-任何一条缺失，再好的 vibe coding 技术也无法变现。
+1. **行业入口**：你能不能进入某个有需求的圈子（受众 / agency 渠道 / 客户网络）
+2. **可计量 ROI**：你能不能让客户用 ROI 来衡量你的产品（多拿 lead、少漏单、多曝光、救活植物）
+3. **分发能力**：你能不能在某个分发渠道持续被发现（SEO / ASO / 自媒体 / agency）
+4. **合规可执行性**（Codex Review 增补，必读）：
+   - 你的产品**能否通过 App Store / 微信小程序 / 应用宝审核**（不是产品做出来就能上架）
+   - 你的产品**能否承担连带责任风险**（医疗/法律/教育/农药/金融建议都是法律雷点）
+   - 你的产品**能否在《互联网信息服务深度合成管理规定》《消法》《精神卫生法》《农药管理条例》《教育部双减政策》等监管下生存**
+   - 你的产品**能否在出问题时举证免责**（disclaimer、人工抽检、热线核验、典故校验）
+
+任何一条缺失，再好的 vibe coding 技术也无法变现。**第 4 条是最容易被忽略的杀手**——本报告 5 个 idea 的 codex review 抓出的雷点：
+
+| Idea | 合规雷点（codex 抓出） |
+|---|---|
+| AI 起名 | LLM 编造典故出处 → 消法欺诈 + 退一赔三 |
+| AI 植物医生 | 推荐农药剂量 → 农药经营违规 + 食品安全连带责任 |
+| AI 梦境日记 | 硬编码停用心理热线 → 危机干预失败的人身安全责任 |
+| AI 倒数日 | 无显著雷点（唯一干净的 idea） |
+| 宠物心情卡片 | "翻译"措辞 → 虚假宣传 |
+
+**结论**：在选择 vibe coding 产品方向时，**先想清楚监管和法律风险，再写代码**。一个合规上不去的 idea，无论代码多漂亮都是 0。
 
 ### 10.1 第一档（4.0+）：垂直 B2B workflow / AI agent 执行层
 

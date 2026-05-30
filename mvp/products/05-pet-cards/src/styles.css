@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'PingFang SC', 'Hiragino Sans GB', 'Source Han Sans CN', system-ui, sans-serif;
+  --font-serif: 'PingFang SC', 'Songti SC', 'Source Han Serif CN', serif;
+}
+
+html,
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  background: #fff8e1;
+  color: #3d2c2e;
+}
+
+body {
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+/* 噪点纹理（复古胶片用） */
+.grain-overlay {
+  position: relative;
+}
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* 简易海报缩略图 */
+.poster-thumb {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* 录音按钮呼吸光晕 */
+.breathing-ring {
+  position: absolute;
+  inset: -16px;
+  border-radius: 9999px;
+  border: 4px solid #ffb6c1;
+  animation: ring-pulse 2s ease-out infinite;
+  opacity: 0;
+}
+.breathing-ring.delay-1 {
+  animation-delay: 0.5s;
+}
+.breathing-ring.delay-2 {
+  animation-delay: 1s;
+}
+@keyframes ring-pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* 录音波形条 */
+.wave-bar {
+  width: 6px;
+  border-radius: 3px;
+  background: #ff8fa3;
+  animation: wave 0.9s ease-in-out infinite;
+}
+@keyframes wave {
+  0%,
+  100% {
+    height: 16px;
+  }
+  50% {
+    height: 56px;
+  }
+}
+
+/* 出现动画 */
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 防止 iOS Safari 长按选择 */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}

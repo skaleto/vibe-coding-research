@@ -1,0 +1,58 @@
+[Unit]
+# mvp-gateway — shared LLM gateway (Hono on @hono/node-server), Node 20 LTS.
+# Topology:  client → nginx (HTTPS 443, sets X-Real-IP) → 127.0.0.1:8400 (this unit)
+# Coexists on the same ECS as ai-baby (Java, :8300) and mvp-ota (:8401).
+# Deployed by mvp/scripts/deploy-aliyun-ecs.sh; see mvp/docs/aliyun-deploy.md.
+Description=MVP Gateway (Node) — shared LLM backend on :8400
+Documentation=https://github.com/your-org/research/blob/main/mvp/docs/aliyun-deploy.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=mvpapp
+Group=mvpapp
+WorkingDirectory=/opt/mvp-gateway
+
+# Non-secret runtime config. PORT is read by src/server.ts (default 8400).
+Environment=NODE_ENV=production
+Environment=PORT=8400
+
+# Secrets (LLM API keys, optional base-URL/model overrides) live OUTSIDE this
+# unit so `systemctl cat` / `ps eww` never expose them. Mirrors the ai-baby
+# /etc/<app>/ convention. The leading '-' makes the file optional (the gateway
+# falls back to mock providers when no key is present), so the unit still starts
+# on a fresh host before secrets are dropped in.
+#   /etc/mvp/gateway.env  — KEY=VALUE lines, chmod 600, owned by mvpapp
+#   DEEPSEEK_API_KEY=...   ZHIPU_API_KEY=...   OPENAI_API_KEY=...
+#   (optional) DEEPSEEK_BASE_URL / ZHIPU_BASE_URL / OPENAI_BASE_URL
+#   (optional) DEEPSEEK_MODEL / ZHIPU_MODEL / OPENAI_MODEL / ZHIPU_VISION_MODEL / OPENAI_VISION_MODEL
+EnvironmentFile=-/etc/mvp/gateway.env
+
+# `npm start` is `node dist/server.js`; call node directly so systemd tracks the
+# real PID (no npm wrapper between systemd and the process → clean SIGTERM).
+ExecStart=/usr/bin/node dist/server.js
+
+Restart=always
+RestartSec=3
+# server.ts handles SIGTERM and drains within 5s; give systemd a little more.
+TimeoutStopSec=10
+KillSignal=SIGTERM
+
+# Log to journald; view with `journalctl -u mvp-gateway -f`.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mvp-gateway
+
+# --- Hardening (gateway is stateless: no disk writes needed) -----------------
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+# Allow read of the secrets dir only.
+ReadOnlyPaths=/etc/mvp
+RestrictAddressFamilies=AF_INET AF_INET6
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

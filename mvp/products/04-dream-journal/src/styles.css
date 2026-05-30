@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    background: theme('colors.bg.DEFAULT');
+    color: theme('colors.ink.DEFAULT');
+    font-feature-settings: 'pnum' on, 'lnum' on;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply bg-bg-paper border border-ink-light/20 rounded-card shadow-soft;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn bg-primary text-bg px-5 py-3 text-sm font-medium hover:bg-primary-dark transition;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn border border-ink-light/40 text-ink px-5 py-3 text-sm hover:bg-bg-alt transition;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn bg-accent text-primary-dark px-5 py-3 text-sm font-medium hover:bg-accent-dark hover:text-bg transition;
+  }
+
+  .compliance-banner {
+    @apply text-xs text-ink-muted bg-bg-alt/70 border-b border-ink-light/20 px-4 py-2 text-center;
+  }
+}

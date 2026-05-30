@@ -1,0 +1,35 @@
+{
+  "product": "01-ai-naming",
+  "baseUrl": "http://localhost:3001",
+  "results": [
+    {
+      "name": "01-home",
+      "path": "/",
+      "file": "/Users/bytedance/Documents/research/mvp/products/01-ai-naming/docs/screenshots/01-home.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "02-baby-form",
+      "path": "/baby",
+      "file": "/Users/bytedance/Documents/research/mvp/products/01-ai-naming/docs/screenshots/02-baby-form.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "03-pricing",
+      "path": "/pricing",
+      "file": "/Users/bytedance/Documents/research/mvp/products/01-ai-naming/docs/screenshots/03-pricing.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "04-baby-result",
+      "path": "/baby/result?surname=%E5%BC%A0&gender=female&vibe=%E6%B8%A9%E6%9F%94%E7%81%B5%E5%8A%A8",
+      "file": "/Users/bytedance/Documents/research/mvp/products/01-ai-naming/docs/screenshots/04-baby-result.png",
+      "ok": true,
+      "err": ""
+    }
+  ],
+  "timestamp": "2026-05-28T10:01:11.003Z"
+}

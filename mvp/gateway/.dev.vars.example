@@ -1,0 +1,12 @@
+# Copy to `.dev.vars` for local `wrangler dev`. .dev.vars is gitignored.
+# Use `wrangler secret put <NAME>` for deployed envs.
+
+# Text providers (优先级: DEEPSEEK > ZHIPU > OPENAI)
+DEEPSEEK_API_KEY=
+ZHIPU_API_KEY=
+OPENAI_API_KEY=
+
+# 可选的 base URL 覆盖 (自部署 / 代理)
+# DEEPSEEK_BASE_URL=https://api.deepseek.com/v1/chat/completions
+# ZHIPU_BASE_URL=https://open.bigmodel.cn/api/paas/v4/chat/completions
+# OPENAI_BASE_URL=https://api.openai.com/v1/chat/completions

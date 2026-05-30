@@ -1,0 +1,42 @@
+{
+  "product": "04-dream-journal",
+  "baseUrl": "http://localhost:3004",
+  "results": [
+    {
+      "name": "01-home",
+      "path": "/",
+      "file": "/Users/bytedance/Documents/research/mvp/products/04-dream-journal/docs/screenshots/01-home.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "02-timeline",
+      "path": "/timeline",
+      "file": "/Users/bytedance/Documents/research/mvp/products/04-dream-journal/docs/screenshots/02-timeline.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "03-crisis",
+      "path": "/crisis",
+      "file": "/Users/bytedance/Documents/research/mvp/products/04-dream-journal/docs/screenshots/03-crisis.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "04-monthly",
+      "path": "/monthly",
+      "file": "/Users/bytedance/Documents/research/mvp/products/04-dream-journal/docs/screenshots/04-monthly.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "05-about",
+      "path": "/about",
+      "file": "/Users/bytedance/Documents/research/mvp/products/04-dream-journal/docs/screenshots/05-about.png",
+      "ok": true,
+      "err": ""
+    }
+  ],
+  "timestamp": "2026-05-28T10:01:40.037Z"
+}

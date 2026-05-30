@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">宠物心情卡片</string>
+    <string name="title_activity_main">宠物心情卡片</string>
+    <string name="package_name">io.petcards.app</string>
+    <string name="custom_url_scheme">io.petcards.app</string>
+</resources>

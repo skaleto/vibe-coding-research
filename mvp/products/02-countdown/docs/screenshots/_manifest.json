@@ -1,0 +1,35 @@
+{
+  "product": "02-countdown",
+  "baseUrl": "http://localhost:3002",
+  "results": [
+    {
+      "name": "01-list-empty",
+      "path": "/",
+      "file": "/Users/bytedance/Documents/research/mvp/products/02-countdown/docs/screenshots/01-list-empty.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "02-list-seeded",
+      "path": "/",
+      "file": "/Users/bytedance/Documents/research/mvp/products/02-countdown/docs/screenshots/02-list-seeded.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "03-new",
+      "path": "/new",
+      "file": "/Users/bytedance/Documents/research/mvp/products/02-countdown/docs/screenshots/03-new.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "04-settings",
+      "path": "/settings",
+      "file": "/Users/bytedance/Documents/research/mvp/products/02-countdown/docs/screenshots/04-settings.png",
+      "ok": true,
+      "err": ""
+    }
+  ],
+  "timestamp": "2026-05-28T10:01:19.998Z"
+}

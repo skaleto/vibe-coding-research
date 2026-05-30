@@ -1,0 +1,28 @@
+{
+  "product": "05-pet-cards",
+  "baseUrl": "http://localhost:3005",
+  "results": [
+    {
+      "name": "01-home",
+      "path": "/",
+      "file": "/Users/bytedance/Documents/research/mvp/products/05-pet-cards/docs/screenshots/01-home.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "02-history",
+      "path": "/history",
+      "file": "/Users/bytedance/Documents/research/mvp/products/05-pet-cards/docs/screenshots/02-history.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "03-about",
+      "path": "/about",
+      "file": "/Users/bytedance/Documents/research/mvp/products/05-pet-cards/docs/screenshots/03-about.png",
+      "ok": true,
+      "err": ""
+    }
+  ],
+  "timestamp": "2026-05-28T10:01:46.806Z"
+}

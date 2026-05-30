@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production / build output (Vite dist 是 OTA 发布源，不入 git)
+build/
+dist/
+
+# Capacitor 原生构建产物（ios/ android/ 工程入 git，但构建产物不入）
+ios/App/build/
+ios/App/Pods/
+ios/App/Podfile.lock
+ios/DerivedData/
+android/.gradle/
+android/build/
+android/app/build/
+android/.idea/
+android/local.properties
+
+# Misc
+.DS_Store
+*.pem
+*.log
+*.tsbuildinfo
+
+# Env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+Thumbs.db

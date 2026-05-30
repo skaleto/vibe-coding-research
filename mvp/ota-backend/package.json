@@ -1,0 +1,28 @@
+{
+  "name": "mvp-ota-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "OTA backend on Node.js (Hono + @hono/node-server) for 5 MVP products. Manifests in local JSON files, bundles in Aliyun OSS, presigned GET URLs via ali-oss. Runs on Aliyun ECS.",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "DATA_DIR=${DATA_DIR:-./data} tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "PORT=${PORT:-8401} node dist/server.js",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.0.4",
+    "ali-oss": "^6.23.0",
+    "hono": "^4.6.3"
+  },
+  "devDependencies": {
+    "@types/ali-oss": "^6.23.3",
+    "@types/node": "^22.7.4",
+    "tsx": "^4.22.3",
+    "typescript": "^5.5.3",
+    "vitest": "~2.1.1"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "mvp-gateway",
+  "version": "0.1.0",
+  "description": "MVP gateway: Hono on Node.js (阿里云 ECS), shared LLM backend for products 01/03/04/05. Cloudflare Workers retained as fallback.",
+  "private": true,
+  "type": "module",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "esbuild src/server.ts --bundle --platform=node --target=node18 --format=esm --outfile=dist/server.js",
+    "start": "node dist/server.js",
+    "type-check": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "deploy:cf": "wrangler deploy",
+    "deploy:cf:staging": "wrangler deploy --env staging",
+    "dev:cf": "wrangler dev --local"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.0.4",
+    "hono": "^4.6.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240924.0",
+    "@types/node": "^22.0.0",
+    "esbuild": "^0.28.0",
+    "tsx": "^4.22.3",
+    "typescript": "^5.5.3",
+    "vitest": "^2.1.1",
+    "wrangler": "^3.78.0"
+  }
+}

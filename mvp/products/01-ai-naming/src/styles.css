@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'PingFang SC', 'Source Han Sans CN', system-ui, sans-serif;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #fff8ee;
+    color: #3d2c2e;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .ink-divider {
+    background: linear-gradient(90deg, transparent, #c8a56c 20%, #c8a56c 80%, transparent);
+    height: 1px;
+  }
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+  .blur-locked {
+    filter: blur(6px);
+    user-select: none;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,783 @@
+[
+  {
+    "id": "succulent-black-rot",
+    "name": "多肉黑腐病",
+    "scientific_name": "Pythium / Phytophthora spp.",
+    "category": "succulent",
+    "symptoms": [
+      "茎基部黑褐色水浸状斑",
+      "叶片由下至上发软透明",
+      "整株散发腐臭味",
+      "用手轻碰叶片脱落",
+      "切口黑色蔓延"
+    ],
+    "causes": [
+      { "cause": "浇水过多致积水", "likelihood": "高" },
+      { "cause": "高温高湿不通风", "likelihood": "高" },
+      { "cause": "土壤带菌或换盆未消毒", "likelihood": "中" }
+    ],
+    "actions": [
+      "立即脱盆晾根",
+      "切除所有黑色组织至健康部位",
+      "保持切口干燥",
+      "晾干 24-48 小时后重新上盆（颗粒土）",
+      "7 天断水，第 8 天沿盆边少量给水"
+    ],
+    "prevention": [
+      "颗粒土比例 ≥70%",
+      "夏季高温少浇水或断水",
+      "通风条件差时不闷养"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-4 周"
+  },
+  {
+    "id": "pothos-yellow-leaf",
+    "name": "绿萝叶黄",
+    "scientific_name": "Epipremnum aureum",
+    "category": "foliage",
+    "symptoms": [
+      "叶片均匀发黄或老叶先黄",
+      "黄叶边缘焦枯",
+      "黄叶柔软无光泽",
+      "黄叶根部还有新芽"
+    ],
+    "causes": [
+      { "cause": "光照不足或过强", "likelihood": "高" },
+      { "cause": "浇水节奏失调", "likelihood": "高" },
+      { "cause": "长期未换盆缺养分", "likelihood": "中" }
+    ],
+    "actions": [
+      "移至明亮散射光处（距窗 1m 内）",
+      "检查土壤干湿，干透浇透",
+      "剪除大面积黄叶",
+      "每月 1 次稀薄复合肥水",
+      "1 年以上未换盆需换新土"
+    ],
+    "prevention": [
+      "远离空调/暖气直吹",
+      "不要让花盆长期积水",
+      "每月转盆 1 次让受光均匀"
+    ],
+    "recovery_outlook": "高",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "tomato-early-blight",
+    "name": "番茄早疫病",
+    "scientific_name": "Alternaria solani",
+    "category": "edible",
+    "symptoms": [
+      "下层老叶先出现褐色同心圆状斑",
+      "病斑直径 0.5-2cm",
+      "病斑周围有黄晕",
+      "严重时整株落叶",
+      "果实近果柄处也有褐色凹陷斑"
+    ],
+    "causes": [
+      { "cause": "高湿+昼夜温差大", "likelihood": "高" },
+      { "cause": "田间通风不良", "likelihood": "高" },
+      { "cause": "种子带菌或连作", "likelihood": "中" }
+    ],
+    "actions": [
+      "立即剪除所有病叶并销毁（不堆肥）",
+      "病株与健康植株拉开距离",
+      "症状继续扩散时咨询本地园艺或农资人员",
+      "增加株间距、绑蔓打杈",
+      "雨季避免叶面浇水"
+    ],
+    "prevention": [
+      "苗期开始定期检查下层叶",
+      "与非茄科作物轮作",
+      "浇水改为根部滴灌"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "1-2 周"
+  },
+  {
+    "id": "rose-powdery-mildew",
+    "name": "月季白粉病",
+    "scientific_name": "Sphaerotheca pannosa var. rosae",
+    "category": "flower",
+    "symptoms": [
+      "叶面/嫩梢覆盖白色粉状物",
+      "受害嫩叶卷曲畸形",
+      "花苞不能开放或开后小",
+      "严重时整株白茫茫",
+      "后期白粉转灰色"
+    ],
+    "causes": [
+      { "cause": "高湿低温（春秋季节交替）", "likelihood": "高" },
+      { "cause": "通风不良", "likelihood": "高" },
+      { "cause": "氮肥过多致徒长", "likelihood": "中" }
+    ],
+    "actions": [
+      "剪除严重病叶病梢",
+      "必要时咨询本地园艺或农资人员",
+      "7 天后复查症状",
+      "改善株间通风",
+      "暂停过量施肥"
+    ],
+    "prevention": [
+      "春秋季节提前检查嫩芽和叶背",
+      "不要叶面喷水",
+      "修剪保持通风"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "1-2 周"
+  },
+  {
+    "id": "cactus-etiolation",
+    "name": "仙人掌徒长",
+    "scientific_name": "Cactaceae",
+    "category": "succulent",
+    "symptoms": [
+      "顶端变细且颜色发淡",
+      "球体伸长变成柱状",
+      "刺座间距拉长",
+      "整体姿态歪斜"
+    ],
+    "causes": [
+      { "cause": "长期光照不足", "likelihood": "高" },
+      { "cause": "浇水过多", "likelihood": "中" },
+      { "cause": "氮肥过多", "likelihood": "中" }
+    ],
+    "actions": [
+      "立即移至全日照位置",
+      "减少浇水至 2-3 周 1 次",
+      "已徒长部分不可逆，可砍头扦插",
+      "砍头切口晾 7 天后扦插",
+      "母球留 2cm 茬继续养会爆侧芽"
+    ],
+    "prevention": [
+      "仙人掌科植物必须每天至少 4 小时直射光",
+      "冬季室内补光灯",
+      "不施氮肥"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "4-8 周"
+  },
+  {
+    "id": "asparagus-yellowing",
+    "name": "文竹枯黄",
+    "scientific_name": "Asparagus setaceus",
+    "category": "foliage",
+    "symptoms": [
+      "叶状枝（针叶）大面积发黄干枯",
+      "黄叶集中在向阳/向风一侧",
+      "摸起来脆易掉",
+      "主茎仍绿色"
+    ],
+    "causes": [
+      { "cause": "空气干燥", "likelihood": "高" },
+      { "cause": "空调/暖气直吹", "likelihood": "高" },
+      { "cause": "缺水或暴晒", "likelihood": "中" }
+    ],
+    "actions": [
+      "立即移离空调出风口",
+      "每天叶面喷水 2 次",
+      "在花盆周围放水盆增湿",
+      "剪除全部干枯叶状枝",
+      "每周浇透 1 次"
+    ],
+    "prevention": [
+      "文竹喜湿润空气，理想湿度 ≥60%",
+      "不要放空调/暖气/阳光直射处",
+      "夏季多喷水叶面"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "3-5 周"
+  },
+  {
+    "id": "clivia-stuck-bloom",
+    "name": "君子兰夹箭",
+    "scientific_name": "Clivia miniata",
+    "category": "flower",
+    "symptoms": [
+      "花箭被叶丛包住无法抽出",
+      "花苞开在叶子中间",
+      "抽箭高度不足 10cm",
+      "花朵不能完全展开"
+    ],
+    "causes": [
+      { "cause": "昼夜温差不足（10℃ 以下）", "likelihood": "高" },
+      { "cause": "缺磷钾肥", "likelihood": "中" },
+      { "cause": "浇水/施肥过多致叶肥", "likelihood": "中" }
+    ],
+    "actions": [
+      "白天放阳光下，夜间放阳台 5-10℃ 冷处，温差拉到 10℃",
+      "补充光照并咨询园艺师是否需要补肥",
+      "不使用民间偏方，先改善温差和光照",
+      "暂停氮肥",
+      "抽箭后温度逐步回升"
+    ],
+    "prevention": [
+      "入秋后开始拉温差",
+      "全年磷钾肥比例 > 氮肥",
+      "5 年以上老株要分盆"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-4 周"
+  },
+  {
+    "id": "orchid-soft-rot",
+    "name": "兰花软腐病",
+    "scientific_name": "Erwinia chrysanthemi",
+    "category": "flower",
+    "symptoms": [
+      "叶基部出现水浸状黑褐斑",
+      "病部腐烂散发恶臭",
+      "1-3 天内蔓延整株",
+      "叶片像热水烫过",
+      "假鳞茎也开始腐烂"
+    ],
+    "causes": [
+      { "cause": "高湿+高温（夏季 30℃ 以上）", "likelihood": "高" },
+      { "cause": "浇水溅到叶基", "likelihood": "高" },
+      { "cause": "刀具未消毒传染", "likelihood": "中" }
+    ],
+    "actions": [
+      "紧急切除病叶（刀具消毒后使用）",
+      "保持切口干燥",
+      "必要时咨询本地园艺或农资人员",
+      "断水 7 天 + 移至通风阴凉处",
+      "7 天后复查是否扩散"
+    ],
+    "prevention": [
+      "浇水避免溅到叶心",
+      "夏季高温通风+遮阴",
+      "不同盆兰花刀具分开消毒"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "monstera-root-rot",
+    "name": "龟背竹烂根",
+    "scientific_name": "Monstera deliciosa",
+    "category": "foliage",
+    "symptoms": [
+      "叶片由下至上发黄",
+      "新叶展开变慢或畸形",
+      "摇晃植株感觉松动",
+      "脱盆见根系黑褐色软烂",
+      "盆土有异味"
+    ],
+    "causes": [
+      { "cause": "长期浇水过多/盆底无排水", "likelihood": "高" },
+      { "cause": "土壤板结不透气", "likelihood": "高" },
+      { "cause": "大盆养小苗致积水", "likelihood": "中" }
+    ],
+    "actions": [
+      "脱盆清洗根系",
+      "剪除所有黑色软烂根",
+      "晾干后观察根系状态",
+      "用透气土重新上盆（小一号花盆）",
+      "之后控水 2 周"
+    ],
+    "prevention": [
+      "花盆必须有排水孔",
+      "不要用过大的盆",
+      "选疏松透气土"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "3-5 周"
+  },
+  {
+    "id": "strawberry-gray-mold",
+    "name": "草莓灰霉病",
+    "scientific_name": "Botrytis cinerea",
+    "category": "edible",
+    "symptoms": [
+      "果实表面长灰色绒毛霉斑",
+      "病果发软糟烂",
+      "病叶出现褐色 V 形斑",
+      "雨后或高湿期暴发",
+      "整株迅速感染"
+    ],
+    "causes": [
+      { "cause": "雨季/高湿", "likelihood": "高" },
+      { "cause": "通风不良", "likelihood": "高" },
+      { "cause": "病果未及时清除", "likelihood": "中" }
+    ],
+    "actions": [
+      "立即摘除所有发霉果和病叶，集中销毁",
+      "雨天移至避雨处",
+      "症状继续扩散时咨询本地园艺或农资人员",
+      "增加株间距",
+      "剪除老叶通风"
+    ],
+    "prevention": [
+      "花期开始定期检查果实和叶背",
+      "不要叶面浇水",
+      "及时摘除老叶残果"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "1-2 周"
+  },
+  {
+    "id": "pothos-white-mold",
+    "name": "绿萝白绢病",
+    "scientific_name": "Sclerotium rolfsii",
+    "category": "foliage",
+    "symptoms": [
+      "茎基部出现白色绢丝状菌丝",
+      "后期产生油菜籽大小褐色菌核",
+      "叶片从下至上发黄萎蔫",
+      "茎基部腐烂倒伏"
+    ],
+    "causes": [
+      { "cause": "高温高湿", "likelihood": "高" },
+      { "cause": "土壤带菌", "likelihood": "高" },
+      { "cause": "排水不良", "likelihood": "中" }
+    ],
+    "actions": [
+      "剥除菌丝菌核并销毁",
+      "换盆换土（旧土弃用）",
+      "隔离观察",
+      "必要时咨询本地园艺或农资人员",
+      "7 天后复查是否扩散"
+    ],
+    "prevention": [
+      "不要用园土直接养绿萝",
+      "高温季节通风",
+      "定期翻盆"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "3-4 周"
+  },
+  {
+    "id": "rose-black-spot",
+    "name": "月季黑斑病",
+    "scientific_name": "Diplocarpon rosae",
+    "category": "flower",
+    "symptoms": [
+      "叶片出现黑褐色圆斑",
+      "病斑边缘呈放射状",
+      "病叶提早脱落",
+      "严重时全株光杆",
+      "多从下层叶开始"
+    ],
+    "causes": [
+      { "cause": "雨季高湿", "likelihood": "高" },
+      { "cause": "通风不良", "likelihood": "高" },
+      { "cause": "叶面长期沾水", "likelihood": "中" }
+    ],
+    "actions": [
+      "摘除全部病叶并销毁（不堆肥）",
+      "必要时咨询本地园艺或农资人员",
+      "7 天后复查",
+      "雨季避免叶面浇水",
+      "落叶清理后撒石灰消毒"
+    ],
+    "prevention": [
+      "春季萌芽期提前检查叶背",
+      "修剪保通风",
+      "增施磷钾肥"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "succulent-scale-insect",
+    "name": "多肉介壳虫",
+    "scientific_name": "Coccoidea",
+    "category": "succulent",
+    "symptoms": [
+      "叶腋/茎基有白色棉絮状或褐色小颗粒",
+      "受害叶片发黄变形",
+      "叶面有黑色霉层",
+      "植株生长停滞"
+    ],
+    "causes": [
+      { "cause": "通风差", "likelihood": "高" },
+      { "cause": "新带入的植物携带", "likelihood": "高" },
+      { "cause": "高温环境", "likelihood": "中" }
+    ],
+    "actions": [
+      "牙签/镊子人工清除可见虫体",
+      "隔离病株并清洁叶腋",
+      "7 天后复查新虫",
+      "严重时咨询本地园艺或农资人员",
+      "介壳分泌物用湿巾擦干净"
+    ],
+    "prevention": [
+      "新购入植物隔离观察 2 周",
+      "通风良好",
+      "早春重点检查叶腋和茎基"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "pothos-leaf-spot",
+    "name": "绿萝叶斑病",
+    "scientific_name": "Pseudomonas cichorii",
+    "category": "foliage",
+    "symptoms": [
+      "叶片出现褐色/黑色水浸状斑",
+      "病斑周围有黄晕",
+      "病斑联合致整叶腐烂",
+      "高湿环境快速扩散"
+    ],
+    "causes": [
+      { "cause": "浇水溅到叶片", "likelihood": "高" },
+      { "cause": "通风差", "likelihood": "高" },
+      { "cause": "温度过低", "likelihood": "中" }
+    ],
+    "actions": [
+      "剪除所有病叶",
+      "必要时咨询本地园艺或农资人员",
+      "浇水改根部，叶面保持干燥",
+      "7 天后复查是否扩散",
+      "改善通风"
+    ],
+    "prevention": [
+      "不要叶面喷水",
+      "冬季注意防寒",
+      "通风"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2 周"
+  },
+  {
+    "id": "tomato-bacterial-wilt",
+    "name": "番茄青枯病",
+    "scientific_name": "Ralstonia solanacearum",
+    "category": "edible",
+    "symptoms": [
+      "植株中午萎蔫早晚恢复",
+      "几天后整株青枯不能恢复",
+      "茎秆基部维管束褐变",
+      "切开茎部有白色菌脓溢出"
+    ],
+    "causes": [
+      { "cause": "土壤带菌", "likelihood": "高" },
+      { "cause": "高温高湿", "likelihood": "高" },
+      { "cause": "根部伤口感染", "likelihood": "中" }
+    ],
+    "actions": [
+      "拔除病株远离种植区销毁（不堆肥）",
+      "病株周边土壤撒石灰消毒",
+      "周边健康植株隔离观察",
+      "该位置 3 年内不种茄科作物",
+      "更换种植土"
+    ],
+    "prevention": [
+      "选抗病品种",
+      "轮作非茄科作物",
+      "嫁接苗（茄子砧木）"
+    ],
+    "recovery_outlook": "低",
+    "time_to_observe": "—"
+  },
+  {
+    "id": "cactus-rust",
+    "name": "仙人掌锈病",
+    "scientific_name": "Uromyces sp.",
+    "category": "succulent",
+    "symptoms": [
+      "球体表面出现褐色/橙色锈状斑",
+      "后期病部凹陷",
+      "严重时整株发软"
+    ],
+    "causes": [
+      { "cause": "高湿", "likelihood": "高" },
+      { "cause": "通风差", "likelihood": "高" },
+      { "cause": "土壤板结", "likelihood": "中" }
+    ],
+    "actions": [
+      "病部用酒精擦拭",
+      "必要时咨询本地园艺或农资人员",
+      "移至通风处",
+      "控水",
+      "7 天后复查"
+    ],
+    "prevention": [
+      "通风+干燥",
+      "不要叶面/球体喷水",
+      "颗粒土"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "clivia-heart-rot",
+    "name": "君子兰烂心",
+    "scientific_name": "Clivia miniata",
+    "category": "flower",
+    "symptoms": [
+      "心叶变软发黑",
+      "散发恶臭",
+      "叶基部水浸状腐烂",
+      "拨开见菌丝"
+    ],
+    "causes": [
+      { "cause": "浇水溅入叶心", "likelihood": "高" },
+      { "cause": "高温高湿", "likelihood": "高" },
+      { "cause": "施肥溅到叶心", "likelihood": "中" }
+    ],
+    "actions": [
+      "切除腐烂部位至健康组织",
+      "用吸水纸吸干叶心积水",
+      "必要时咨询本地园艺或农资人员",
+      "断水 1 周",
+      "通风干燥养护"
+    ],
+    "prevention": [
+      "浇水从盆边给，不溅叶心",
+      "雨天不施叶面肥",
+      "通风"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "3-4 周"
+  },
+  {
+    "id": "rose-aphid",
+    "name": "月季蚜虫",
+    "scientific_name": "Aphidoidea",
+    "category": "flower",
+    "symptoms": [
+      "嫩芽/花苞密布绿色或黑色小虫",
+      "受害嫩叶卷曲",
+      "蜜露引来蚂蚁/煤烟病",
+      "严重时新梢枯萎"
+    ],
+    "causes": [
+      { "cause": "春季嫩梢期", "likelihood": "高" },
+      { "cause": "通风差", "likelihood": "中" },
+      { "cause": "周边有蚂蚁巢", "likelihood": "中" }
+    ],
+    "actions": [
+      "强水流冲洗虫体（轻度可治）",
+      "必要时咨询本地园艺或农资人员",
+      "修剪受害严重的嫩梢",
+      "蚂蚁源头处理",
+      "7 天后复查新虫"
+    ],
+    "prevention": [
+      "春季提前检查嫩梢",
+      "益虫保护（瓢虫）",
+      "周边除草"
+    ],
+    "recovery_outlook": "高",
+    "time_to_observe": "3-5 天"
+  },
+  {
+    "id": "asparagus-root-rot",
+    "name": "文竹根腐",
+    "scientific_name": "Asparagus setaceus",
+    "category": "foliage",
+    "symptoms": [
+      "叶状枝大面积发黄",
+      "主茎倒伏",
+      "脱盆见根系发黑",
+      "块根腐烂"
+    ],
+    "causes": [
+      { "cause": "浇水过多", "likelihood": "高" },
+      { "cause": "土壤不透气", "likelihood": "高" },
+      { "cause": "大盆养小苗", "likelihood": "中" }
+    ],
+    "actions": [
+      "脱盆清洗根系",
+      "剪除黑烂根",
+      "清洗后晾干并换透气土",
+      "透气土重新上盆",
+      "控水"
+    ],
+    "prevention": [
+      "见干见湿",
+      "选透气土",
+      "不用大盆"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "4 周"
+  },
+  {
+    "id": "strawberry-powdery-mildew",
+    "name": "草莓白粉病",
+    "scientific_name": "Sphaerotheca aphanis",
+    "category": "edible",
+    "symptoms": [
+      "叶背出现白色粉状物",
+      "叶片向上卷曲",
+      "果实表面白色绒毛",
+      "果实硬化、口感差"
+    ],
+    "causes": [
+      { "cause": "高温干燥", "likelihood": "高" },
+      { "cause": "通风差", "likelihood": "高" },
+      { "cause": "氮肥过多", "likelihood": "中" }
+    ],
+    "actions": [
+      "剪除严重病叶",
+      "必要时咨询本地园艺或农资人员",
+      "7 天后复查",
+      "改善通风",
+      "避免过量施肥"
+    ],
+    "prevention": [
+      "花期前提前观察",
+      "株间通风",
+      "不要密植"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2 周"
+  },
+  {
+    "id": "succulent-sunburn",
+    "name": "多肉日灼病",
+    "scientific_name": "生理性灼伤",
+    "category": "succulent",
+    "symptoms": [
+      "叶片向阳面出现褐色枯斑",
+      "严重时整叶焦化",
+      "顶端生长点发黄"
+    ],
+    "causes": [
+      { "cause": "夏季暴晒", "likelihood": "高" },
+      { "cause": "玻璃聚焦光线", "likelihood": "中" },
+      { "cause": "缺水期暴晒", "likelihood": "中" }
+    ],
+    "actions": [
+      "移至散射光处恢复",
+      "已灼伤叶片不可逆，可剪除",
+      "晚上喷水降温",
+      "增加遮阴网",
+      "暴晒前一天补水"
+    ],
+    "prevention": [
+      "夏季 30℃ 以上遮阴",
+      "不放玻璃窗内直射",
+      "室外移室内要逐步过渡"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "tomato-blossom-end-rot",
+    "name": "番茄脐腐病",
+    "scientific_name": "钙缺乏症",
+    "category": "edible",
+    "symptoms": [
+      "果实顶端（脐部）出现褐色凹陷斑",
+      "病斑扩大变黑硬化",
+      "多发生在第一穗果实",
+      "病果不能食用"
+    ],
+    "causes": [
+      { "cause": "缺钙", "likelihood": "高" },
+      { "cause": "浇水不均", "likelihood": "高" },
+      { "cause": "氮肥过多影响钙吸收", "likelihood": "中" }
+    ],
+    "actions": [
+      "摘除病果",
+      "改善浇水节奏（不要忽干忽湿）",
+      "暂停氮肥",
+      "咨询园艺师是否需要补钙",
+      "后续结果期保持水分稳定"
+    ],
+    "prevention": [
+      "定期补钙",
+      "浇水均匀",
+      "不施过量氮肥"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "orchid-anthracnose",
+    "name": "兰花炭疽病",
+    "scientific_name": "Colletotrichum gloeosporioides",
+    "category": "flower",
+    "symptoms": [
+      "叶片出现深褐色凹陷斑",
+      "病斑边缘有黄晕",
+      "病斑上有黑色小点",
+      "病斑联合致整叶枯死"
+    ],
+    "causes": [
+      { "cause": "高湿", "likelihood": "高" },
+      { "cause": "通风差", "likelihood": "高" },
+      { "cause": "伤口侵染", "likelihood": "中" }
+    ],
+    "actions": [
+      "剪除病叶并销毁",
+      "隔离观察",
+      "必要时咨询本地园艺或农资人员",
+      "通风+控水",
+      "7 天后复查病斑是否扩大"
+    ],
+    "prevention": [
+      "通风+控湿",
+      "不损伤叶片",
+      "雨季提前检查叶片"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2-3 周"
+  },
+  {
+    "id": "monstera-leaf-spot",
+    "name": "龟背竹叶斑病",
+    "scientific_name": "Phyllosticta sp.",
+    "category": "foliage",
+    "symptoms": [
+      "叶片出现褐色圆斑或不规则斑",
+      "病斑有黄晕",
+      "严重时穿孔",
+      "新叶展开变小"
+    ],
+    "causes": [
+      { "cause": "浇水溅叶", "likelihood": "高" },
+      { "cause": "通风差", "likelihood": "高" },
+      { "cause": "温差过大", "likelihood": "中" }
+    ],
+    "actions": [
+      "剪除病叶",
+      "必要时咨询本地园艺或农资人员",
+      "通风",
+      "浇水改根部",
+      "7 天后复查"
+    ],
+    "prevention": [
+      "不叶面喷水",
+      "远离空调出风口",
+      "通风"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "2 周"
+  },
+  {
+    "id": "strawberry-spider-mite",
+    "name": "草莓红蜘蛛",
+    "scientific_name": "Tetranychus urticae",
+    "category": "edible",
+    "symptoms": [
+      "叶背出现密集红色或黄色小点",
+      "叶面出现失绿小斑",
+      "严重时整叶发黄脱落",
+      "叶背有蛛丝",
+      "高温干燥季节暴发"
+    ],
+    "causes": [
+      { "cause": "高温干燥", "likelihood": "高" },
+      { "cause": "通风差", "likelihood": "中" },
+      { "cause": "周边杂草带螨", "likelihood": "中" }
+    ],
+    "actions": [
+      "剪除严重受害叶",
+      "隔离病株",
+      "必要时咨询本地园艺或农资人员",
+      "增加叶面湿度（喷水降温）",
+      "杂草清理"
+    ],
+    "prevention": [
+      "高温季节增湿",
+      "周边清洁",
+      "早期发现早治"
+    ],
+    "recovery_outlook": "中",
+    "time_to_observe": "1-2 周"
+  }
+]

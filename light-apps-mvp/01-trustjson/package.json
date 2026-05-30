@@ -1,0 +1,12 @@
+{
+  "name": "trustjson",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TrustJSON — 100% local, zero-tracking, open-source JSON viewer Chrome extension (MV3). No build step required; load the folder directly in chrome://extensions.",
+  "scripts": {
+    "test": "node test/run-tests.mjs",
+    "validate": "node test/validate-manifest.mjs",
+    "check": "npm run validate && npm run test"
+  },
+  "license": "MIT"
+}

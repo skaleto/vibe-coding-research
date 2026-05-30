@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Default tokens — overridden per-theme via inline CSS variables */
+  --theme-primary: #1a1a1a;
+  --theme-secondary: #666666;
+  --theme-accent: #ff3b30;
+  --theme-bg: #fafafa;
+  --theme-surface: #ffffff;
+  --theme-text: #1a1a1a;
+  --theme-muted: #999999;
+
+  --theme-font-sans:
+    -apple-system, 'PingFang SC', 'Helvetica Neue', system-ui, sans-serif;
+  --theme-font-display:
+    -apple-system, 'PingFang SC', 'SF Pro Display', system-ui, sans-serif;
+  --theme-font-mono: 'SF Mono', 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html,
+body {
+  background: var(--theme-bg);
+  color: var(--theme-text);
+  font-family: var(--theme-font-sans);
+  min-height: 100%;
+}
+
+/* Theme-aware utility helpers */
+.font-display {
+  font-family: var(--theme-font-display);
+}
+
+.font-body {
+  font-family: var(--theme-font-sans);
+}
+
+.font-typewriter {
+  font-family: var(--theme-font-mono);
+}
+
+/* Decorative scanlines used by cyber theme */
+.cyber-scanlines {
+  position: relative;
+  isolation: isolate;
+}
+.cyber-scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 245, 255, 0.04) 0px,
+    rgba(0, 245, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  z-index: 1;
+}
+
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 110, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.cyber-glow-magenta {
+  text-shadow:
+    0 0 4px #ff006e,
+    0 0 12px rgba(255, 0, 110, 0.6),
+    0 0 24px rgba(255, 0, 110, 0.35);
+}
+
+.cyber-glow-cyan {
+  text-shadow:
+    0 0 4px #00f5ff,
+    0 0 10px rgba(0, 245, 255, 0.5);
+}
+
+.cyber-glitch {
+  animation: cyber-flicker 4s infinite steps(8, end);
+}
+@keyframes cyber-flicker {
+  0%,
+  4%,
+  20%,
+  62%,
+  100% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0.72;
+  }
+  18% {
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.82;
+  }
+}
+
+/* Film grain overlay used by film theme */
+.film-grain {
+  position: relative;
+}
+.film-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.18 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+}
+
+/* Film perforation strips (drawn on small/medium widget hero) */
+.film-perforations::before,
+.film-perforations::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  background-color: #2d2418;
+  background-image: radial-gradient(
+    circle,
+    #f5e6d3 3px,
+    transparent 3.5px
+  );
+  background-size: 14px 14px;
+  background-position: 0 6px;
+}
+.film-perforations::before {
+  left: 0;
+}
+.film-perforations::after {
+  right: 0;
+}
+
+/* Pink theme dotted-paper background */
+.pink-paper {
+  background-image:
+    radial-gradient(circle at 20% 25%, rgba(255, 215, 0, 0.18) 0%, transparent 35%),
+    radial-gradient(circle at 80% 75%, rgba(184, 226, 242, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
+}
+
+/* Ink theme paper grain */
+.ink-paper {
+  background-image:
+    radial-gradient(circle at 80% 100%, rgba(28, 28, 28, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 12% 0%, rgba(168, 159, 140, 0.18) 0%, transparent 38%);
+}
+
+.ink-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: 0.18em;
+}
+
+/* Vertical scroll buffer so floating + button doesn't cover last card */
+.list-bottom-pad {
+  padding-bottom: 7rem;
+}
+
+/* Reusable safe button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-weight: 500;
+  padding: 0.65rem 1.1rem;
+  border-radius: 0.75rem;
+  transition:
+    transform 100ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--theme-primary);
+  color: var(--theme-surface);
+}
+.btn-primary:hover {
+  filter: brightness(1.06);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--theme-text);
+  border: 1px solid var(--theme-muted);
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}

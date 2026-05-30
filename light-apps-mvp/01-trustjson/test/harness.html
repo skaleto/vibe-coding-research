@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+  TrustJSON — DEV-ONLY harness to run the REAL viewer.js outside the extension.
+  It shims the minimal chrome.* APIs viewer.js touches (runtime.getURL, storage)
+  so the full render pipeline (Worker + tree + virtual scroll + search + copy)
+  can be verified in a plain browser via a static server.
+  NOT part of the shipped extension behavior; the extension uses viewer.html.
+-->
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <title>TrustJSON viewer (harness)</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script>
+    // Minimal chrome.* shim so viewer.js runs over plain http://.
+    window.chrome = {
+      runtime: {
+        getURL: function (p) {
+          // worker.js sits one level up from /test/
+          return new URL("../" + p, location.href).href;
+        },
+      },
+      storage: {
+        local: {
+          _d: {},
+          get: function (k, cb) { cb({ theme: this._d.theme }); },
+          set: function (o, cb) { Object.assign(this._d, o); if (cb) cb(); },
+        },
+        session: {
+          _d: {},
+          get: function (k, cb) { cb({ trustjsonHandoff: this._d.trustjsonHandoff }); },
+          set: function (o, cb) { Object.assign(this._d, o); if (cb) cb(); },
+          remove: function (k, cb) { delete this._d[k]; if (cb) cb(); },
+          setAccessLevel: function () {},
+        },
+      },
+      tabs: { create: function (o) { window.open(o.url, "_blank"); } },
+    };
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">{ }</span>
+      <span class="name">TrustJSON</span>
+      <span class="privacy-badge">🔒 100% local · no data sent</span>
+    </div>
+    <div class="toolbar" id="toolbar" hidden>
+      <div class="search">
+        <input type="search" id="search-input" placeholder="Search keys / values…" autocomplete="off" spellcheck="false" />
+        <span class="search-count" id="search-count"></span>
+        <button id="search-prev" class="icon-btn" title="Previous">▲</button>
+        <button id="search-next" class="icon-btn" title="Next">▼</button>
+      </div>
+      <div class="spacer"></div>
+      <div class="view-toggle" role="tablist">
+        <button id="tab-tree" class="seg active" role="tab">Tree</button>
+        <button id="tab-raw" class="seg" role="tab">Raw</button>
+      </div>
+      <div class="raw-tools" id="raw-tools" hidden>
+        <button id="btn-beautify" class="btn">Beautify</button>
+        <button id="btn-minify" class="btn">Minify</button>
+      </div>
+      <button id="btn-expand-all" class="btn">Expand all</button>
+      <button id="btn-collapse-all" class="btn">Collapse all</button>
+      <div class="pro-group">
+        <button class="btn pro" data-pro="diff">Diff <span class="pro-tag">Pro</span></button>
+        <button class="btn pro" data-pro="jq">jq <span class="pro-tag">Pro</span></button>
+        <button class="btn pro" data-pro="jwt">JWT <span class="pro-tag">Pro</span></button>
+      </div>
+      <button id="btn-new" class="btn ghost">New</button>
+      <button id="btn-theme" class="icon-btn">◐</button>
+    </div>
+    <div class="toolbar-min" id="toolbar-min">
+      <button id="btn-theme-2" class="icon-btn">◐</button>
+    </div>
+  </header>
+
+  <section class="loader" id="loader">
+    <div class="drop" id="dropzone">
+      <p class="drop-hint">Paste JSON, drop a file, or open one.</p>
+      <textarea id="paste-area" placeholder='{ "paste": "JSON here" }' spellcheck="false"></textarea>
+      <div class="loader-actions">
+        <button id="btn-parse" class="btn primary">View JSON</button>
+        <button id="btn-open-file" class="btn">Open file…</button>
+        <input type="file" id="file-input" accept=".json,.txt,.ndjson" hidden />
+        <button id="btn-sample" class="btn ghost">Load sample</button>
+      </div>
+      <p class="trust-note">Zero network requests. <code>connect-src 'none'</code>.</p>
+    </div>
+  </section>
+
+  <section class="error-panel" id="error-panel" hidden>
+    <div class="error-head">
+      <span class="error-title">Invalid JSON</span>
+      <span class="error-loc" id="error-loc"></span>
+    </div>
+    <pre class="error-snippet" id="error-snippet"></pre>
+    <button id="btn-back-to-input" class="btn">Back to input</button>
+  </section>
+
+  <div class="status" id="status" hidden>
+    <div class="spinner"></div>
+    <span id="status-text">Parsing…</span>
+  </div>
+
+  <main class="viewer" id="tree-view" hidden>
+    <div class="scroll" id="scroll">
+      <div class="spacer" id="spacer"></div>
+      <div class="rows" id="rows"></div>
+    </div>
+  </main>
+
+  <main class="viewer raw" id="raw-view" hidden>
+    <pre class="raw-pre" id="raw-pre" tabindex="0"></pre>
+  </main>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <div class="ctx-menu" id="ctx-menu" hidden>
+    <button data-act="copy-value">Copy value</button>
+    <button data-act="copy-path">Copy path</button>
+    <button data-act="copy-key">Copy key</button>
+    <button data-act="copy-subtree">Copy node (JSON)</button>
+  </div>
+
+  <footer class="statusbar" id="statusbar" hidden>
+    <span id="stat-size"></span>
+    <span id="stat-nodes"></span>
+    <span id="stat-sel"></span>
+  </footer>
+
+  <script src="../tree.js"></script>
+  <script src="../viewer.js"></script>
+  <script>
+    // DEV harness auto-driver: when ?auto=1, click "Load sample" so headless
+    // verification has deterministic content to render.
+    if (/[?&]auto=1/.test(location.search)) {
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          var b = document.getElementById("btn-sample");
+          if (b) b.click();
+        }, 50);
+      });
+    }
+  </script>
+</body>
+</html>

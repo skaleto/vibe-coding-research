@@ -1,0 +1,35 @@
+{
+  "product": "03-plant-doctor",
+  "baseUrl": "http://localhost:3003",
+  "results": [
+    {
+      "name": "01-home",
+      "path": "/",
+      "file": "/Users/bytedance/Documents/research/mvp/products/03-plant-doctor/docs/screenshots/01-home.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "02-capture",
+      "path": "/capture",
+      "file": "/Users/bytedance/Documents/research/mvp/products/03-plant-doctor/docs/screenshots/02-capture.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "03-my-plants",
+      "path": "/my-plants",
+      "file": "/Users/bytedance/Documents/research/mvp/products/03-plant-doctor/docs/screenshots/03-my-plants.png",
+      "ok": true,
+      "err": ""
+    },
+    {
+      "name": "04-about",
+      "path": "/about",
+      "file": "/Users/bytedance/Documents/research/mvp/products/03-plant-doctor/docs/screenshots/04-about.png",
+      "ok": true,
+      "err": ""
+    }
+  ],
+  "timestamp": "2026-05-28T10:01:28.879Z"
+}

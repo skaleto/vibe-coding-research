@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* A4 在屏幕上的渲染宽度（px），高度按 √2 比例由组件控制 */
+  --a4-width: 794px; /* 210mm @ 96dpi */
+  --a4-height: 1123px; /* 297mm @ 96dpi */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: theme('colors.canvas.DEFAULT');
+  color: theme('colors.ink.DEFAULT');
+  -webkit-font-smoothing: antialiased;
+  font-family: theme('fontFamily.sans');
+}
+
+/* 让 textarea / input 在表单里手感一致 */
+.field-input {
+  @apply w-full rounded-md border border-ink-faint bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20;
+}
+.field-label {
+  @apply mb-1 block text-xs font-medium text-ink-muted;
+}
+
+/* A4 纸张容器：固定宽高比，内部按模板自由排版 */
+.a4-sheet {
+  width: var(--a4-width);
+  min-height: var(--a4-height);
+  background: #fff;
+}
+
+/* 打印：只打印简历纸张，隐藏应用 UI；A4 分页 */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-area {
+    position: static !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 210mm !important;
+    min-height: 297mm !important;
+  }
+}
+
+/* 隐藏滚动条但可滚动（预览面板） */
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(31, 35, 41, 0.15);
+  border-radius: 999px;
+}

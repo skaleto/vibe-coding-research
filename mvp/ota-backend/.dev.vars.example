@@ -1,0 +1,23 @@
+# Copy to .dev.vars (gitignored) for `wrangler dev --local`.
+# Production secrets are injected via `wrangler secret put <NAME>`.
+#
+# ⚠️ These are DEV PLACEHOLDERS ONLY. NEVER use them in production.
+#    Generate real admin tokens with `openssl rand -hex 32` (>= 32 chars; the
+#    runtime warns on anything shorter).
+
+# --- R2 credentials (least privilege: Object READ only on the bucket) --------
+R2_ACCESS_KEY_ID=dev-r2-access-key
+R2_SECRET_ACCESS_KEY=dev-r2-secret-access-key
+
+# --- Per-app admin tokens (C6 — preferred). One per app; a leak of one only --
+#     compromises that single app. Name = OTA_TOKEN_<APP> (appId minus io./.app,
+#     upper-cased). Dev values below are 40 chars so they pass the strength bar.
+OTA_TOKEN_SHIJINGNAMING=dev-token-shijingnaming-change-me-please
+OTA_TOKEN_COUNTDOWNPRO=dev-token-countdownpro-change-me-please0
+OTA_TOKEN_PLANTDOCTOR=dev-token-plantdoctor-change-me-please00
+OTA_TOKEN_DREAMJOURNAL=dev-token-dreamjournal-change-me-please0
+OTA_TOKEN_PETCARDS=dev-token-petcards-change-me-please00000
+
+# --- Legacy shared admin token (fallback only) -------------------------------
+#     Used only for an app whose OTA_TOKEN_<APP> above is unset (logs a warning).
+OTA_ADMIN_TOKEN=dev-admin-token-change-me-please-32chars+

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">倒数日 Pro</string>
+    <string name="title_activity_main">倒数日 Pro</string>
+    <string name="package_name">io.countdownpro.app</string>
+    <string name="custom_url_scheme">io.countdownpro.app</string>
+</resources>

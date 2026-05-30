@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TrustJSON — Browser self-test (tree.js)</title>
+  <style>
+    body { font: 13px system-ui, sans-serif; margin: 24px; background: #0d1117; color: #e6edf3; }
+    h1 { font-size: 16px; }
+    .pass { color: #7ee787; }
+    .fail { color: #ff7b72; }
+    pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 12px; overflow: auto; }
+    code { color: #79c0ff; }
+  </style>
+</head>
+<body>
+  <h1>TrustJSON — Browser self-test</h1>
+  <p>Open this file directly in a browser (no extension needed). It loads the real
+     <code>tree.js</code> module and runs assertions + a stress test. This validates the
+     core model in a real browser engine. Results below:</p>
+  <pre id="out">running…</pre>
+
+  <!-- Load the SAME module the extension uses -->
+  <script src="../tree.js"></script>
+  <script>
+    (function () {
+      var TJ = window.TJTree;
+      var out = document.getElementById("out");
+      var lines = [];
+      var passed = 0, failed = 0;
+      function ok(name, cond) {
+        if (cond) { passed++; lines.push('<span class="pass">PASS</span>  ' + name); }
+        else { failed++; lines.push('<span class="fail">FAIL</span>  ' + name); }
+      }
+
+      // basic
+      ok("valueType array", TJ.valueType([1]) === "array");
+      ok("path data.users[0].name", TJ.pathToString([
+        { kind: "key", value: "data" }, { kind: "key", value: "users" },
+        { kind: "index", value: 0 }, { kind: "key", value: "name" }
+      ]) === "data.users[0].name");
+
+      // build + expand
+      var data = { a: 1, b: { c: 2 }, big: [] };
+      for (var i = 0; i < 5000; i++) data.big.push(i);
+      var built = TJ.buildInitial(data);
+      ok("root expands one level", built.rows.length === 4);
+      var bigIdx = built.rows.findIndex(function (r) { return r.key === "big"; });
+      TJ.expand(built.rows, bigIdx);
+      ok("huge array chunked to CHILD_CHUNK", built.rows.filter(function (r) { return r.keyKind === "index"; }).length === TJ.CHILD_CHUNK);
+
+      // stress in-browser
+      var users = [];
+      var N = 40000;
+      for (var u = 0; u < N; u++) users.push({ id: u, name: "user_" + u, meta: { deep: { v: u } } });
+      var text = JSON.stringify({ count: N, users: users });
+      var mb = (text.length / 1024 / 1024).toFixed(1);
+      var t0 = performance.now();
+      var parsed = JSON.parse(text);
+      var t1 = performance.now();
+      var b2 = TJ.buildInitial(parsed);
+      var t2 = performance.now();
+      lines.push("");
+      lines.push("[stress] " + mb + " MB, " + N + " users in a real browser");
+      lines.push("[stress] JSON.parse: " + (t1 - t0).toFixed(1) + "ms | buildInitial: " + (t2 - t1).toFixed(1) + "ms");
+      lines.push("[stress] initial visible rows: " + b2.rows.length + " (NOT " + N + " — virtualization works)");
+      ok("stress: initial rows stay tiny", b2.rows.length <= TJ.CHILD_CHUNK + 10);
+
+      var segs = [
+        { kind: "key", value: "users" }, { kind: "index", value: N - 1 },
+        { kind: "key", value: "meta" }, { kind: "key", value: "deep" }, { kind: "key", value: "v" }
+      ];
+      var t3 = performance.now();
+      var idx = TJ.revealPath(b2.rows, b2.root, segs);
+      var t4 = performance.now();
+      lines.push("[stress] revealPath to last user deep value: " + (t4 - t3).toFixed(1) + "ms");
+      ok("stress: revealPath reaches last user", idx > -1 && b2.rows[idx].value === N - 1);
+
+      lines.push("");
+      lines.push(passed + " passed, " + failed + " failed");
+      out.innerHTML = lines.join("\n");
+    })();
+  </script>
+</body>
+</html>

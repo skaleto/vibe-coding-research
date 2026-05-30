@@ -1,0 +1,70 @@
+name = "mvp-ota"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = true
+
+# ---------------------------------------------------------------------------
+# Bindings (default / production)
+# ---------------------------------------------------------------------------
+
+# KV namespace for per-appId manifest storage.
+# Create via: wrangler kv:namespace create OTA_MANIFEST
+# Then paste the returned id below. Use --preview for preview_id.
+[[kv_namespaces]]
+binding = "OTA_MANIFEST"
+id = "0000000000000000000000000000000000"
+preview_id = "0000000000000000000000000000000000"
+
+# R2 bucket for bundle binary storage (zip).
+# Create via: wrangler r2 bucket create mvp-ota-bundles
+[[r2_buckets]]
+binding = "OTA_BUCKET"
+bucket_name = "mvp-ota-bundles"
+preview_bucket_name = "mvp-ota-bundles-dev"
+
+# Non-secret config used to build R2 S3 endpoint URLs.
+# R2_ACCOUNT_ID = your Cloudflare account id (URL-safe hex).
+# R2_BUCKET_NAME mirrors r2_buckets.bucket_name; kept separate so
+# signing logic does not depend on the binding name.
+[vars]
+R2_ACCOUNT_ID = "REPLACE_ME_ACCOUNT_ID"
+R2_BUCKET_NAME = "mvp-ota-bundles"
+
+# Secrets injected via `wrangler secret put` (NEVER commit these values):
+#   R2 credentials (least privilege: Object READ only on mvp-ota-bundles):
+#   - R2_ACCESS_KEY_ID       # R2 API token Access Key (dashboard -> R2 -> Manage API Tokens)
+#   - R2_SECRET_ACCESS_KEY   # R2 API token Secret
+#
+#   Per-app admin tokens (C6 — preferred; one leak poisons only ONE app).
+#   Generate each with `openssl rand -hex 32` (>= 32 chars enforced at runtime):
+#   - OTA_TOKEN_SHIJINGNAMING   # admin Bearer for io.shijingnaming.app
+#   - OTA_TOKEN_COUNTDOWNPRO    # admin Bearer for io.countdownpro.app
+#   - OTA_TOKEN_PLANTDOCTOR     # admin Bearer for io.plantdoctor.app
+#   - OTA_TOKEN_DREAMJOURNAL    # admin Bearer for io.dreamjournal.app
+#   - OTA_TOKEN_PETCARDS        # admin Bearer for io.petcards.app
+#
+#   Legacy shared token (fallback only — used when an OTA_TOKEN_<APP> above is
+#   not configured; logs a console.warn each time). Prefer per-app tokens.
+#   - OTA_ADMIN_TOKEN        # shared admin Bearer for /admin/manifest writes
+
+# ---------------------------------------------------------------------------
+# Staging environment
+# ---------------------------------------------------------------------------
+[env.staging]
+name = "mvp-ota-staging"
+workers_dev = true
+
+[[env.staging.kv_namespaces]]
+binding = "OTA_MANIFEST"
+id = "0000000000000000000000000000000000"
+preview_id = "0000000000000000000000000000000000"
+
+[[env.staging.r2_buckets]]
+binding = "OTA_BUCKET"
+bucket_name = "mvp-ota-bundles"
+preview_bucket_name = "mvp-ota-bundles-dev"
+
+[env.staging.vars]
+R2_ACCOUNT_ID = "REPLACE_ME_ACCOUNT_ID"
+R2_BUCKET_NAME = "mvp-ota-bundles"

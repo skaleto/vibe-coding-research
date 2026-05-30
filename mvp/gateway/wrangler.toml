@@ -1,0 +1,42 @@
+name = "mvp-gateway"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+workers_dev = true
+
+# 文本模型默认 ID (非密钥，KV namespace 仅在 staging/prod 绑定)
+[vars]
+DEEPSEEK_MODEL = "deepseek-chat"
+ZHIPU_MODEL = "glm-4-flash"
+OPENAI_MODEL = "gpt-4o-mini"
+ZHIPU_VISION_MODEL = "glm-4v-flash"
+OPENAI_VISION_MODEL = "gpt-4o-mini"
+
+# 本地 dev: KV namespace 由 wrangler dev --local 内置 miniflare 模拟
+# Secrets (用 `wrangler secret put <NAME>` 注入):
+# - DEEPSEEK_API_KEY (可选)
+# - ZHIPU_API_KEY (可选)
+# - OPENAI_API_KEY (可选)
+# - DEEPSEEK_BASE_URL (可选)
+# - ZHIPU_BASE_URL (可选)
+# - OPENAI_BASE_URL (可选)
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "PLACEHOLDER_REPLACE_BEFORE_DEPLOY"
+preview_id = "PLACEHOLDER_REPLACE_BEFORE_DEPLOY"
+
+# Staging env
+[env.staging]
+name = "mvp-gateway-staging"
+
+[env.staging.vars]
+DEEPSEEK_MODEL = "deepseek-chat"
+ZHIPU_MODEL = "glm-4-flash"
+OPENAI_MODEL = "gpt-4o-mini"
+ZHIPU_VISION_MODEL = "glm-4v-flash"
+OPENAI_VISION_MODEL = "gpt-4o-mini"
+
+[[env.staging.kv_namespaces]]
+binding = "RATE_LIMIT_KV"
+id = "PLACEHOLDER_REPLACE_BEFORE_DEPLOY"
+preview_id = "PLACEHOLDER_REPLACE_BEFORE_DEPLOY"

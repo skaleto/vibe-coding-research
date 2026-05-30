@@ -1,0 +1,64 @@
+[Unit]
+# mvp-ota — OTA backend (Hono on @hono/node-server), Node 20 LTS.
+# Manifests: local JSON under DATA_DIR (was Cloudflare KV).
+# Bundles:   Aliyun OSS, GET URLs signed via the ali-oss SDK (was R2).
+# Topology:  client → nginx (HTTPS 443) → 127.0.0.1:8401 (this unit)
+# Coexists on the same ECS as ai-baby (Java, :8300) and mvp-gateway (:8400).
+# Deployed by mvp/scripts/deploy-aliyun-ecs.sh; see mvp/docs/aliyun-deploy.md.
+Description=MVP OTA Backend (Node) — manifests + OSS-signed bundle URLs on :8401
+Documentation=https://github.com/your-org/research/blob/main/mvp/docs/aliyun-deploy.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=mvpapp
+Group=mvpapp
+WorkingDirectory=/opt/mvp-ota
+
+# Non-secret runtime config. PORT + DATA_DIR are read by src/server.ts.
+Environment=NODE_ENV=production
+Environment=PORT=8401
+# Manifest JSON store. server.ts persists ${DATA_DIR}/manifests/<appId>.json.
+Environment=DATA_DIR=/var/lib/mvp-ota
+
+# Secrets (OSS AK/SK + per-app OTA admin tokens) live OUTSIDE this unit, in an
+# /etc/mvp file (chmod 600, owned by mvpapp), mirroring the ai-baby convention.
+# Required (writes fail at sign time without them):
+#   ALIYUN_OSS_ENDPOINT=oss-cn-hangzhou.aliyuncs.com
+#   ALIYUN_OSS_BUCKET=mvp-ota-bundles
+#   ALIYUN_OSS_ACCESS_KEY_ID=...        (RAM user, least-privilege on the bucket)
+#   ALIYUN_OSS_ACCESS_KEY_SECRET=...
+# Admin tokens (per-app preferred — a single leak only poisons ONE app):
+#   OTA_TOKEN_SHIJINGNAMING=...  OTA_TOKEN_COUNTDOWNPRO=...  OTA_TOKEN_PLANTDOCTOR=...
+#   OTA_TOKEN_DREAMJOURNAL=...   OTA_TOKEN_PETCARDS=...
+#   (fallback) OTA_ADMIN_TOKEN=...      # honoured only where a per-app token is unset
+# Leading '-' keeps the unit startable on a fresh host (the read-only /check
+# path never hard-fails on missing config); publishing needs the file present.
+EnvironmentFile=-/etc/mvp/ota.env
+
+# `npm start` is `node dist/server.js`; call node directly for a clean PID.
+ExecStart=/usr/bin/node dist/server.js
+
+Restart=always
+RestartSec=3
+TimeoutStopSec=10
+KillSignal=SIGTERM
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mvp-ota
+
+# --- Hardening (needs RW only on its data dir) -------------------------------
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadOnlyPaths=/etc/mvp
+# Manifest writes go here; everything else stays read-only.
+ReadWritePaths=/var/lib/mvp-ota
+RestrictAddressFamilies=AF_INET AF_INET6
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

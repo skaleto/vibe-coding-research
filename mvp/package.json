@@ -1,0 +1,12 @@
+{
+  "name": "vibe-coding-mvp",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Vibe coding 5 个 MVP 产品的容器目录。每个产品在 products/0X-xxx/ 下独立 install / run；本顶层 package.json 仅承载 scripts/ 下共享工具（如 screenshot.mjs）的依赖。",
+  "scripts": {
+    "screenshot": "node scripts/screenshot.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

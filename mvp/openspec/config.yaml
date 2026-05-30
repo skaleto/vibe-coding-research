@@ -1,0 +1,10 @@
+schema: spec-driven
+
+context: |
+  项目：5 个轻产品 MVP（vibe coding 矩阵 / 个人开发者）
+  技术栈：Next.js 14 App Router + TypeScript + Tailwind CSS
+  LLM：默认 mock 数据 fallback；可配 DeepSeek / OpenAI / Anthropic env key 走真实 API
+  数据存储：MVP 用 localStorage / SQLite-WASM / JSON 静态文件
+  部署：Vercel-ready；Capacitor 壳留口子（02 倒数日预留 iOS WidgetKit）
+  合规：参考 light-products/compliance-checklist.md（codex review 加固版）
+  占位图：参考 ai-baby-growth-companion 的 Placeholder 组件模式 + codex-todo 文档

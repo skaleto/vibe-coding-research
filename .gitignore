@@ -1,0 +1,63 @@
+# ---- Dependencies ----
+node_modules/
+.pnp
+.pnp.js
+
+# ---- Build output ----
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# ---- Capacitor / iOS build artifacts (keep project source, drop build) ----
+ios/App/build/
+ios/App/Pods/
+ios/App/Podfile.lock
+ios/App/DerivedData/
+ios/DerivedData/
+**/DerivedData/
+*.xcuserstate
+xcuserdata/
+
+# ---- Android build artifacts ----
+android/.gradle/
+android/build/
+android/app/build/
+android/.idea/
+android/local.properties
+android/captures/
+android/.cxx/
+
+# ---- Swift / SwiftPM build ----
+.build/
+.swiftpm/xcode/
+Package.resolved.user
+
+# ---- Env / secrets ----
+.env
+.env.local
+.env.*.local
+.dev.vars
+*.pem
+*.p12
+*.mobileprovision
+
+# ---- Logs ----
+*.log
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ---- Test / cache ----
+.cache/
+playwright-report/
+test-results/
+coverage/
+
+# ---- Temp ----
+*.tmp
+tmp/
