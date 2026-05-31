@@ -3,6 +3,16 @@
 **调研日期**：2026-05-29
 **方法**：5 个并行 research agent（国外浏览器插件 / 国外 Mac-Raycast / 国内小程序-iOS / 端侧一次性 AI / 反例成本陷阱），每个多轮 WebSearch+WebFetch、标注证据强度、严禁编造。原 deep-research workflow 卡死后由控制器接管重跑。
 **子报告**：`01~05-*.md`
+**场景扩充（2026-05-30 新增）**：
+- `06-scenario-expansion-2026.md` —— 6 个新场景簇（开发者插件市场 / Windows+跨平台桌面 / 移动端个性化定制 / 垂直受众浏览器插件 / 确定性本地处理工具 / 国内新增场景）+ 案例库 + 可投入点子 + 横向优先级
+- `08-breadth-expansion-2026.md` —— **广度 3 轮**再加 18 个全新场景簇（CLI/API/self-host/Workspace/Sheets/bot · 教师学生/桌游/健身/音乐/作家/摄影师 · SKU工厂/micro-acquisition/AppSumo LTD/模板平台/MCP等新兴surface/boring B2B）
+- `07-deep-dive-rounds-2026.md` —— **深度 3 轮**：标杆法证拆解（DevUtils/MacWhisper/Wallaby/Closet Tools 等）→ 6 点子判决表 → 冷启动机制实测（HN/JetBrains/SEO/小红书/PH）+ **失败基线与 kill 标准（去幸存者偏差）**
+- `09-codex-depth-pipeline-2026.md` —— **Codex 纵深 pipeline**：独立重查浏览器扩展、本地 Mac 批处理、自出版 preflight、Workspace add-on、本地 MCP；重点补定价、运行时成本、冷启动、护城河、kill 标准，严禁把安装量当收入
+- `10-codex-breadth-pipeline-2026.md` —— **Codex 广度 pipeline**：独立补 Canva/Figma/Shopify marketplace、accessibility、prompt eval BYOK、Roblox/UEFN 创作者工具、Etsy/POD/KDP、Zotero、Home Assistant、eldercare、政务表单、活动运营补丁等新 surface
+- `11-china-depth-pipeline-2026.md` —— **中国大陆纵深 pipeline**：围绕普通人更容易代入的虚拟资料+生成器、闲鱼出清、小店团购、创作者发布前质检、长辈照护资料夹、飞书/企微模板做法证拆解
+- `12-china-breadth-pipeline-2026.md` —— **中国大陆广度 pipeline**：补装修、车主、宠物、证件政务、亲子非 K12、旅行攻略落地、小商家 SKU 利润、企业微信轻行政等国内生活/工作/副业场景
+- `13-china-breadth-independent-2026.md` —— **中国大陆独立广度调研**（与 12 互为交叉验证，数据独立重检）：7 簇机会地图（小程序工具12%破冰/数字商品模板/创作者非AI工具/闲鱼副业/本地小店/垂直行业SaaS/出海+知识付费）+ 个体户门票/法律红线/失败锚点
+- `14-china-depth-independent-2026.md` —— **中国大陆独立纵深调研**（与 11 互为交叉验证）：6 标杆法证拆解（陈云飞补光灯/idoubi出海/付费社群/小程序坟场vs幸存者/小红书产品即内容/数字商品头部）+ **去幸存者偏差失败基线与 Kill 标准** + 中国 vs 海外收口
 
 ---
 
