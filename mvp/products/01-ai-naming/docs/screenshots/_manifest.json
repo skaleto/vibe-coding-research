@@ -1,6 +1,6 @@
 {
   "product": "01-ai-naming",
-  "baseUrl": "http://localhost:3001",
+  "baseUrl": "http://127.0.0.1:4171",
   "results": [
     {
       "name": "01-home",
@@ -31,5 +31,5 @@
       "err": ""
     }
   ],
-  "timestamp": "2026-05-28T10:01:11.003Z"
+  "timestamp": "2026-06-01T03:47:37.552Z"
 }

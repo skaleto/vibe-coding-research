@@ -95,6 +95,11 @@ function EmptyState() {
         color: 'var(--theme-text)',
       }}
     >
+      <img
+        src="/placeholders/hero-themes.png"
+        alt="倒数日主题预览"
+        className="mb-5 aspect-video w-full rounded-2xl object-cover shadow-sm"
+      />
       <div className="mx-auto inline-flex items-center justify-center h-14 w-14 rounded-full"
         style={{ background: 'var(--theme-bg)' }}>
         <Sparkles size={26} />

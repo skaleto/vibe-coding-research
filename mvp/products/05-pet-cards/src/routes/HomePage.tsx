@@ -129,6 +129,12 @@ export default function HomePage() {
         {DISCLAIMER}
       </div>
 
+      <img
+        src="/placeholders/hero-pet.png"
+        alt="猫狗宠物心情卡片"
+        className="mt-5 aspect-video w-full rounded-card object-cover shadow-bubble"
+      />
+
       {/* 宠物种类选择 */}
       <section className="mt-6">
         <div className="text-xs font-medium text-ink-muted">选个种类</div>

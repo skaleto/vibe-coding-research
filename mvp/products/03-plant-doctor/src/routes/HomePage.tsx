@@ -14,42 +14,51 @@ import { StatBadge } from '@/components/StatBadge';
 export default function HomePage() {
   return (
     <div className="space-y-10">
-      <section className="relative overflow-hidden rounded-card bg-primary px-6 py-10 text-white shadow-card sm:px-10 sm:py-14">
-        <div className="text-xs uppercase tracking-[0.32em] opacity-70">
-          Fire your 花店老板
-        </div>
-        <h1 className="mt-3 text-3xl font-bold leading-snug sm:text-4xl">
-          拍叶子，看看怎么了。
-        </h1>
-        <p className="mt-3 max-w-lg text-sm text-white/85 sm:text-base">
-          上传 1-3 张植物照片，30 秒内得到病害诊断、30 天非药物护理日历，
-          并附 AI 局限性的明确说明。严重病害我们会推你去找本地园艺师。
-        </p>
-        <div className="mt-5 flex flex-wrap items-center gap-3">
-          <StatBadge
-            statKey="analyzed"
-            prefix="已分析 "
-            suffix="+ 张照片"
+      <section className="relative overflow-hidden rounded-card bg-primary px-6 py-8 text-white shadow-card sm:px-10 sm:py-12">
+        <div className="grid gap-7 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+          <div>
+            <div className="text-xs uppercase tracking-[0.32em] opacity-70">
+              Fire your 花店老板
+            </div>
+            <h1 className="mt-3 text-3xl font-bold leading-snug sm:text-4xl">
+              拍叶子，看看怎么了。
+            </h1>
+            <p className="mt-3 max-w-lg text-sm text-white/85 sm:text-base">
+              上传 1-3 张植物照片，30 秒内得到病害诊断、30 天非药物护理日历，
+              并附 AI 局限性的明确说明。严重病害我们会推你去找本地园艺师。
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <StatBadge
+                statKey="analyzed"
+                prefix="已分析 "
+                suffix="+ 张照片"
+              />
+              <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] text-white/80">
+                AI 诊断仅供参考，不替代专业园艺师
+              </span>
+            </div>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                to="/capture"
+                className="inline-flex items-center gap-2 rounded-btn bg-accent px-5 py-3 text-sm font-semibold text-ink-dark shadow-soft hover:bg-accent-dark"
+              >
+                <Camera className="h-4 w-4" />
+                拍叶子，看看怎么了
+              </Link>
+              <Link
+                to="/my-plants"
+                className="inline-flex items-center gap-2 rounded-btn bg-white/15 px-5 py-3 text-sm font-medium text-white hover:bg-white/25"
+              >
+                <ListChecks className="h-4 w-4" />
+                我的植物档案
+              </Link>
+            </div>
+          </div>
+          <img
+            src="/placeholders/hero-plant.png"
+            alt="窗台上的家庭植物"
+            className="aspect-[4/3] w-full rounded-[22px] object-cover shadow-soft"
           />
-          <span className="rounded-full bg-white/10 px-2.5 py-1 text-[11px] text-white/80">
-            AI 诊断仅供参考，不替代专业园艺师
-          </span>
-        </div>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <Link
-            to="/capture"
-            className="inline-flex items-center gap-2 rounded-btn bg-accent px-5 py-3 text-sm font-semibold text-ink-dark shadow-soft hover:bg-accent-dark"
-          >
-            <Camera className="h-4 w-4" />
-            拍叶子，看看怎么了
-          </Link>
-          <Link
-            to="/my-plants"
-            className="inline-flex items-center gap-2 rounded-btn bg-white/15 px-5 py-3 text-sm font-medium text-white hover:bg-white/25"
-          >
-            <ListChecks className="h-4 w-4" />
-            我的植物档案
-          </Link>
         </div>
       </section>
 
